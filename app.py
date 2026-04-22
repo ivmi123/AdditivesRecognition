@@ -1,9 +1,10 @@
+import streamlit as st
 import numpy as np
 import pandas as pd
 from rapidfuzz import fuzz
 import cv2
-import streamlit as st
 import easyocr
+from PIL import Image, ImageDraw
 
 st.set_page_config(page_title="Advanced Additive Scanner", layout="centered")
 
