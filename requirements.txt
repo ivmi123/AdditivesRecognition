@@ -7,4 +7,3 @@ torchvision
 opencv-python-headless
 pandas
 rapidfuzz
-pyzbar
