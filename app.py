@@ -1,11 +1,7 @@
-import streamlit as st
-import easyocr
-from PIL import Image, ImageDraw
 import numpy as np
 import pandas as pd
 from rapidfuzz import fuzz
 import cv2
-from pyzbar.pyzbar import decode
 
 st.set_page_config(page_title="Advanced Additive Scanner", layout="centered")
 
@@ -45,13 +41,6 @@ if uploaded_file:
     img_np = np.array(image)
 
     st.image(image, caption="Uploaded Image", use_column_width=True)
-
-    # Barcode detection
-    barcodes = decode(img_np)
-    if barcodes:
-        st.subheader("📦 Barcode detected")
-        for b in barcodes:
-            st.write(f"Code: {b.data.decode('utf-8')}")
 
     with st.spinner("🔍 Running OCR..."):
         results = reader.readtext(img_np)
